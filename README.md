@@ -33,7 +33,7 @@
 
 ## Examples:
 
-- Suppose we need to render the page without `navbar`, in this case, we need to set the` Order pos` for this route less than that of `navbar`, in our case `navbar` has `Order pos -100`, set our route accordingly (let this will be `/wrapper/`) `Order pos -101` and set `Next` field to `false` value. So ILC will start with the application with the lowest value of `Order pos`, in this case it is `-101`, because its route match it will be rendered, but the `Next` field is set to `false`, so the ILC will not look for matches further, so only one application will be rendered for us.
+- Suppose we need to render the page without `navbar`, in this case, we need to set the `Order pos` for this route less than that of `navbar`, in our case `navbar` has `Order pos -100`, set our route accordingly (let this will be `/wrapper/`) `Order pos -101` and set `Next` field to `false` value. So ILC will start with the application with the lowest value of `Order pos`, in this case it is `-101`, because its route match it will be rendered, but the `Next` field is set to `false`, so the ILC will not look for matches further, so only one application will be rendered for us.
 
 ![ILC registry first example](./assets/route2.png)
 
