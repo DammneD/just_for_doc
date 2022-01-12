@@ -44,7 +44,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- Now suppose we need to render the page without app with `Order pos 0` and route `*` but with `navbar`, in this case, we need to set the `Order pos` for this route less than `0` but more than `-100` because it's `navbar` position, so set our route (let this will be `/wrapper/`) accordingly `Order pos -2` and set `Next` field to `false` value. So ILC will start with the application with the lowest value of `Order pos`, it is `-100`, because it's route `*` it will be rendered, and the `Next` field is set to `true`, so the ILC will look for matches further, next one will be `Order pos -2` it's match and it will be rendered, `Next` value set to false, so ILС will not look for matches further.
+- Now suppose we need to render the page without app with `Order pos 0` and route `*` but with `navbar`, in this case, we need to set the `Order pos` for this route between `0` and `-100` because `-100` it's `navbar` position, so set our route (let this will be `/wrapper/`) accordingly `Order pos -2`. So ILC will start with the application with the lowest value of `Order pos`, it is `-100`, because it's route `*` it will be rendered, and the `Next` field is set to `true`, so the ILC will look for matches further, next one will be `Order pos -2` it's match and it will be rendered, `Next` value set to `false`, so ILС will not look for matches further.
 
 ![ILC registry first example](./assets/route2.png)
 
