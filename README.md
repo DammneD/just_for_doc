@@ -3,7 +3,7 @@
 ## Route match patterns
 **Important!** ILC looks for an exact match on the route, this means that the content with the route `/` will be rendered only on the main page of the application. To bypass this, just add `*` after the route.
 
-![Animation during reroute](./assets/route.png)
+[ILC registry route](./assets/route.png)
 
 - `*` - displayed on all routes by default (if Order pos. and/or Domain name allows).
 
@@ -19,7 +19,7 @@
 
 - ILC goes through positions from lowest to highest.
 
-![Animation during reroute](./assets/route2.png)
+[ILC registry Order pos](./assets/route2.png)
 
 - Thus, if we try to access the `/simple/` route in front of the main route, we will render content with the `*` route and the position `-100` because its position is less,
 accordingly, content with route `*` and position `0` will not be rendered.
@@ -28,4 +28,4 @@ accordingly, content with route `*` and position `0` will not be rendered.
 
 **Important!** The `Next` parameter for pass-through routes must be set to` true`, otherwise (as in the screenshot below) the rendering will be stopped after the first element is rendered with the `Next` parameter with the value` false`
 
-![Animation during reroute](./assets/route3.png)
+![ILC registry 'Next' parametr](./assets/route3.png)
