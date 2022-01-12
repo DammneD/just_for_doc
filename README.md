@@ -50,5 +50,19 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 ![ILC registry second example result](./assets/second-case-result.png)
 
+#
 
+- Now let's go to the `/wrapper/blablabla/` route, we will render both `*` routes and the error, because the ILC will go through the entire Order pos and will not find an exact match with the given route.
+
+**Result:**
+
+![ILC registry third example result](./assets/third-case-result.png)
+
+#
+
+- And the last example, let's go to the route `/people/blablabla/`, and since in the ILC registry it will value `/people/*` - ILC will render both the routes `*` and the route `/people/*`.
+
+**Result:**
+
+![ILC registry fourth example result](./assets/fourth-case-result.png)
 
