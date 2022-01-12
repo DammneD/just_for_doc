@@ -1,15 +1,17 @@
 # Match & cascade merge
 
 ## Route field
-![ILC registry route](./assets/route.png)
+![ILC registry route](./assets/route-field.png)
 
-- `*` - displayed on all routes by default (if Order pos. and/or Domain name allows).
+- `*` - matches for any route.
 
-- `/` - displayed only on the main page of the application.
+- `/ `- matches only for home page.
 
-- `/news/*` - the content will be displayed on the `/news/` route and everything that will be written in the address bar after it(like `/news/blablabla`).
+- `/news/*` - matches for `/news/` route and any subroute (e.g. `/news/blablabla`).
 
-- `/wrapper/` - content will be displayed only on this route, if you add characters in the address bar after the route (like `/wrapper/blablabla`), the content will not be displayed.
+- `/wrapper/` - matches only for `/wrapper/` route and ignores for any subroute (e.g. `/wrapper/blablabla`).
+
+- Route must be unique for each domain (we can use the same order position, provided that the domain names are different).
 
 ## Order field
 ![ILC registry Order field](./assets/order-field.png)
@@ -31,7 +33,7 @@
 
 ## Examples:
 
-- Let's say we are trying to access the route `/wrapper/`, in the case as in the screenshot below, ILC will start with the application with the lowest value of `Order pos`, in this case it is `-100`, because its route is `*` it will be rendered, but the `Next` field is set to `false`, So the ILC will not look for matches further, so only one application will be rendered for us.
+- Suppose we need to render the page without `navbar`, in this case, we need to set the` Order pos` for this route less than that of `navbar`, in our case `navbar` has `Order pos -100`, set our route accordingly (let this will be `/wrapper/`) `Order pos -101` and set `Next` field to `false` value. So ILC will start with the application with the lowest value of `Order pos`, in this case it is `-101`, because its route match it will be rendered, but the `Next` field is set to `false`, so the ILC will not look for matches further, so only one application will be rendered for us.
 
 ![ILC registry first example](./assets/route2.png)
 
@@ -41,7 +43,7 @@
 
 #
 
-- Now let's change the value of the `Next` field as in the screenshot below, and again try to enter the `/wrapper/` route, ILC will start from the application with the lowest `Order pos` value,
+- Now let's change back value `Order pos` of `/wrapper/` to `40` as in the screenshot below, and again try to enter the `/wrapper/` route, ILC will start from the application with the lowest `Order pos` value,
 in this case it is `-100`, because its route is `*` it will be rendered, and since the `Next` field is set to `true` ILC will go further along the order, `Order pos -1` **will not be rendered** because the `/simple/` route does not match the given one, we move further to position `0`, render this application because its route `*` and move on, because the `Next` field is set to `true`, next few applications will not be rendered, because their route does not match the specified one, until we reach the position `40`, its route exactly matches the specified one, the application will be rendered, and because `Next` is set to the value `false` ILС will not look for matches further. In total, we will render 3 applications, both routes `*` and route `/wrapper/`.
 
 ![ILC registry second example](./assets/route.png)
@@ -52,7 +54,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- Now let's go to the `/wrapper/blablabla/` route, we will render both `*` routes and the error, because the ILC will go through the entire Order pos and will not find an exact match with the given route.
+- Now let's go to the`/people/blablabla/`, and since in the ILC registry it will value `/people/*` - ILC will render both the routes `*` and the route `/people/*`.
 
 **Result:**
 
@@ -60,9 +62,11 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- And the last example, let's go to the route `/people/blablabla/`, and since in the ILC registry it will value `/people/*` - ILC will render both the routes `*` and the route `/people/*`.
+- And the last example, let's go to the route `/wrapper/blablabla/` route, we will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored.
 
 **Result:**
 
 ![ILC registry fourth example result](./assets/fourth-case-result.png)
+
+
 
