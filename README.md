@@ -3,7 +3,7 @@
 ## Route match patterns
 **Important!** ILC looks for an exact match on the route, this means that the content with the route `/` will be rendered only on the main page of the application. To bypass this, just add `*` after the route.
 
-[ILC registry route](./assets/route.png)
+![ILC registry route](./assets/route.png)
 
 - `*` - displayed on all routes by default (if Order pos. and/or Domain name allows).
 
@@ -19,7 +19,7 @@
 
 - ILC goes through positions from lowest to highest.
 
-[ILC registry Order pos](./assets/route2.png)
+![ILC registry Order pos](./assets/route2.png)
 
 - Thus, if we try to access the `/simple/` route in front of the main route, we will render content with the `*` route and the position `-100` because its position is less,
 accordingly, content with route `*` and position `0` will not be rendered.
