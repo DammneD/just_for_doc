@@ -31,13 +31,20 @@
 
 ## Examples:
 
-- Let's say we are trying to access the route `/news/`, in the case as in the screenshot below, ILC will start with the application with the lowest value of `Order pos`, in this case it is `-100`, because its route is `*` it will be rendered, but the `Next` field is set to `false`, So the ILC will not look for matches further, so only one application will be rendered for us.
+- Let's say we are trying to access the route `/wrapper/`, in the case as in the screenshot below, ILC will start with the application with the lowest value of `Order pos`, in this case it is `-100`, because its route is `*` it will be rendered, but the `Next` field is set to `false`, So the ILC will not look for matches further, so only one application will be rendered for us.
 
-![ILC registry first example](./assets/route3.png)
+![ILC registry first example](./assets/route2.png)
+**Result:**
 ![ILC registry first example result](./assets/first-case-result.png)
 
+#
 
-<!-- - Thus, if we try to access the `/simple/` route, in front of the main route, we will render content with the `*` route and the position `-100` because its position is less,
-accordingly, content with route `*` and position `0` will not be rendered.
+- Now let's change the value of the `Next` field as in the screenshot below, and again try to enter the `/wrapper/`route, ILC will start from the application with the lowest `Order pos` value,
+in this case it is `-100`, because its route is `*` it will be rendered, and since the `Next` field is set to `true` ILC will go further along the order, `-1` **will not be rendered** because the `/simple/` route does not match the given one, we move further to position `0`, render this application because its route `*` and move on, because the `Next` field is set to `true`, next few applications will not be rendered, because their route does not match the specified one, until we reach the position `40`, its route exactly matches the specified one, the application will be rendered, and because `Next` is set to the value `false` ILС will not look for matches further. In total, we will render 3 applications, both routes `*` and route `/wrapper/`.
 
-- If we go to the `/news/` route, in addition to it, both `*` routes will also be rendered. -->
+![ILC registry second example](./assets/route.png)
+**Result:**
+![ILC registry second example result](./assets/first-case-result.png)
+
+
+
