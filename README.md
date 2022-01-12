@@ -48,7 +48,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 **Result:**
 
-![ILC registry second example result](./assets/first-case-result.png)
+![ILC registry second example result](./assets/second-case-result.png)
 
 
 
