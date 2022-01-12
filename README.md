@@ -54,7 +54,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- Now let's go to the`/people/blablabla/`, and since in the ILC registry it will value `/people/*` - ILC will render both the routes `*` and the route `/people/*`.
+- Now let's go to the route `/people/blablabla/`, since in the ILC registry we have the value `/people/*` - ILC will render both routes `*` and the route `/people/*`
 
 **Result:**
 
@@ -62,7 +62,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- And the last example, let's go to the route `/wrapper/blablabla/` route, we will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored.
+- And the last example, let's go to the route `/wrapper/blablabla/` route, we will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored (in this case `navbar` it's part of [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), **not** our route `*` with `Order pos - 100`).
 
 **Result:**
 
