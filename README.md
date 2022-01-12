@@ -31,9 +31,10 @@
 
 ## Examples:
 
-- In the screenshot below
+- Let's say we are trying to access the route `/news/`, in the case as in the screenshot below, ILC will start with the application with the lowest value of `Order pos`, in this case it is `-100`, because its route is `*` it will be rendered, but the `Next` field is set to `false`, So the ILC will not look for matches further, so only one application will be rendered for us.
 
-![ILC registry 'Next' parametr](./assets/route3.png)
+![ILC registry first example](./assets/route3.png)
+![ILC registry first example result](./assets/first-case-result.png)
 
 
 <!-- - Thus, if we try to access the `/simple/` route, in front of the main route, we will render content with the `*` route and the position `-100` because its position is less,
