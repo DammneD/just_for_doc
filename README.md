@@ -62,7 +62,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 #
 
-- Let's change back `Order pos` of `wrapper` to `40` and go to the `/wrapper/blablabla/` route, we will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored (in this case `navbar` it's part of [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), **not** our route `*` with `Order pos - 100`).
+- Let's change back `Order pos` of `wrapper` to `40` and go to the `/wrapper/blablabla/` route, ILC will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored (in this case `navbar` it's part of [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), **not** our route `*` with `Order pos - 100`).
 
 ![ILC registry second example](./assets/route.png)
 
