@@ -60,7 +60,9 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 ![ILC registry third example result](./assets/third-case-result.png)
 
+#
 
+- In summary, I want to make it clear that using `Order pos` can flexibly customize the displayed content, for example, for `sidebar, navbar, footer` we set position `0, -100, -1000` and accordingly specifying for the new application a a value above zero for its position, on the page will be rendered our new app, and `sidebar, navbar, footer`, so set position between `0 and -100` we **don't** render the `sidebar`, between `-100 and -1000` we **don't** render `sidebar` and `navbar`, set the position below `-1000` we will render only new application, without `sidebar, navbar, footer`.
 
 
 
