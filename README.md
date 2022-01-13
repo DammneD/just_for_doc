@@ -11,14 +11,14 @@
 
 - `/wrapper/` - matches only for `/wrapper/` route and ignores for any subroute (e.g. `/wrapper/blablabla`).
 
-- Route must be unique for each domain (we can use the same order position, provided that the domain names are different).
+- Route must be unique for each domain, the exception is `*` (we can use the same order position, provided that the domain names are different).
 
 ## Order field
 ![ILC registry Order field](./assets/order-field.png)
 
 - Only integer numbers are allowed, from minus infinity to plus infinity.
 
-- ILC goes through positions from lowest to highest.
+- ILC goes through positions from lowest to highest (more details will be written below in the examples).
 
 - Order positions must be unique for each domain (we can use the same order position, provided that the domain names are different).
 
@@ -36,7 +36,7 @@
 - Let's try to enter the `/wrapper/` route, ILC will start from the application with the lowest `Order pos` value,
 in this case it is `-100`, because its route is `*` it will be rendered, and since the `Next` field is set to `true` ILC will go further along the order, `Order pos -1` **will not be rendered** because the `/simple/` route does not match the given one, we move further to position `0`, render this application because its route `*` and move on, because the `Next` field is set to `true`, next few applications will not be rendered, because their route does not match the specified one, until we reach the position `40`, its route exactly matches the specified one, the application will be rendered, and because `Next` is set to the value `false` ILС will not look for matches further. In total, we will render 3 applications, both routes `*` and route `/wrapper/`.
 
-![ILC registry second example](./assets/route.png)
+![ILC registry second example](./assets/first-case-route.png)
 
 **Result:**
 
@@ -60,15 +60,7 @@ in this case it is `-100`, because its route is `*` it will be rendered, and sin
 
 ![ILC registry third example result](./assets/third-case-result.png)
 
-#
 
-- Let's change back `Order pos` of `wrapper` to `40` and go to the `/wrapper/blablabla/` route, ILC will render [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), because the specified route does not exactly match our routes, аnd all other routes (like `*`) will be ignored (in this case `navbar` it's part of [Error](https://github.com/namecheap/ilc/blob/master/docs/global_errors_handling.md#404-error-not-found), **not** our route `*` with `Order pos - 100`).
-
-![ILC registry second example](./assets/route.png)
-
-**Result:**
-
-![ILC registry fourth example result](./assets/fourth-case-result.png)
 
 
 
