@@ -10,7 +10,11 @@ It is used to render errors, if an application with the `Primary` or `Essential`
 
 - This error usually means that the requested resource was not found on the server.
 
-- When using `Special route` all standard routes are ignored, including `*` with any `Order pos`
+- When using `Special route` all standard routes are ignored, including `*` with any `Order pos`.
+
+- If you want something else to be displayed on the page besides the error (header, footer, etc.), you need to add them to the [Slot](./routing/route_configuration_options.md#slot-configuration) as in the screenshot below (This is necessary because standard routes are ignored).
+
+![ILC registry error slot](../assets/routes/error-slot.png)
 
 - `Special route` must have a `Template`.
 
